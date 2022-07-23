@@ -67,7 +67,7 @@ node AddAt(node head, int value, int position){
     return head;
 }
  
-node DelHead(node head){
+node DeleteHead(node head){
     if(head == NULL){
         printf("\nCha co gi de xoa het!");
     }else{
@@ -76,9 +76,9 @@ node DelHead(node head){
     return head;
 }
  
-node DelTail(node head){
+node DeleteTail(node head){
     if (head == NULL || head->next == NULL){
-         return DelHead(head);
+         return DeleteHead(head);
     }
     node p = head;
     while(p->next->next != NULL){
@@ -90,7 +90,7 @@ node DelTail(node head){
  
 node DelAt(node head, int position){
     if(position == 0 || head == NULL || head->next == NULL){
-        head = DelHead(head); 
+        head = DeleteHead(head); 
     }else{
         int k = 1;
         node p = head;
@@ -100,7 +100,7 @@ node DelAt(node head, int position){
         }
  
         if(k != position){
-            head = DelTail(head);
+            head = DeleteTail(head);
         }else{
             p->next = p->next->next;
         }
@@ -128,7 +128,7 @@ int Search(node head, int value){
     return -1;
 }
  
-node DelByVal(node head, int value){
+node DeleteByValue(node head, int value){
     int position = Search(head, value);
     while(position != -1){
         DelAt(head, position);
